@@ -19,7 +19,7 @@ public class CalcularMedia {
 
 		for (int a = 0; a < notaTurma.length; a++) {
 			for (int nA = 0; nA < notaTurma.length; nA++) {
-				System.out.printf("Digite a nota %d do aluno %d ", (nA + 1), (a + 1));
+				System.out.printf("Digite a nota %d do aluno %d ", nA + 1, a + 1);
 				notaTurma[a][nA] = ler.nextDouble();
 				total += notaTurma[a][nA];
 			}

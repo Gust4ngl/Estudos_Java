@@ -40,7 +40,6 @@ public class Agenda {
 
 			case 2:
 
-				JOptionPane.showMessageDialog(null, "Cadastre um contato a agenda primeiro!");
 				int n = Contato.size();
 				for (int i = 0; i < n; i++) {
 					JOptionPane.showMessageDialog(null, "Posição: " + i + Contato.get(i));
@@ -61,7 +60,6 @@ public class Agenda {
 				break;
 
 			case 4:
-				JOptionPane.showMessageDialog(null, "Cadastre um contato a agenda primeiro!");
 				op = Integer.parseInt(JOptionPane.showInputDialog("Qual contato voce deseja apagar?" + Contato));
 				Contato.remove(op);
 				break;

@@ -20,6 +20,14 @@ public class Jogo {
 		enemy.atacar(hero);// o personagem enemy vai atacar hero ja que os dois estao lado a lado
 		System.out.println("A vida de hero é: " + hero.hp);//mostrando a vida(HP) do personagem atacado
 		
+		
+		hero.x = 12;
+		hero.y = 80;
+		
+		enemy.x = 9;
+		enemy.y = 12;
+		
+		System.out.println(enemy.atacar(hero));
 	}
 	
 }

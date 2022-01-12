@@ -4,9 +4,9 @@ public class Jantar {
 	
 	public static void main(String[] args) {
 		Pessoa convidado = new Pessoa(64.29);
-		Macarrao macarrao = new Macarrao(0.2);
-		Strogonoff strogonoff = new Strogonoff(0.18);
-		Brigadeiro brigadeiro = new Brigadeiro(0.15);
+		Comida macarrao = new Macarrao(0.2);
+		Comida strogonoff = new Strogonoff(0.18);
+		Comida brigadeiro = new Brigadeiro(0.15);
 		
 		System.out.println(convidado.getPeso());
 		

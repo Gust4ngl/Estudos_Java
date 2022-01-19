@@ -1,4 +1,4 @@
-package testes.agendaOO;
+package testes.agendaTelefônica;
 
 public class Pessoa {
 	

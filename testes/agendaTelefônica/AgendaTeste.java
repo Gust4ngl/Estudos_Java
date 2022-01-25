@@ -25,7 +25,7 @@ public class AgendaTeste {
 				op = ler.nextInt();
 
 				while (op == 1) {
-					
+					agenda.adicionarContato();
 					System.out.println(
 							"Deseja adicionar mais um contato? Para continuar basta digitar 1, para sair digite qualquer numero");
 					op = ler.nextInt();
@@ -42,6 +42,11 @@ public class AgendaTeste {
 				op = ler.nextInt();
 				agenda.alterarContato(op);
 				break;
+			
+			case 4:
+				System.out.println("Qual contato deseja apagar?");
+				op = ler.nextInt();
+				agenda.apagar(op);
 
 			}// switch
 		} // while

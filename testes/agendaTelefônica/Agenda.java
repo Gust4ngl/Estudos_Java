@@ -6,8 +6,6 @@ import java.util.function.Consumer;
 
 public class Agenda {
 
-	private Pessoa pessoa;
-
 	private Consumer<Pessoa> imprimir = i -> System.out.println(i.getNome() + "\n" + i.getNumero());
 	private ArrayList<Pessoa> agenda = new ArrayList<Pessoa>();
 
@@ -33,6 +31,10 @@ public class Agenda {
 		nome = ler.next();
 		System.out.println("Digite o numero");
 		numero = ler.nextInt();
-		agenda.set(alt, pessoa);
+		agenda.set(alt, new Pessoa(nome, numero));
 	}// void alterar
+
+	void apagar(int alt) {
+		agenda.remove(alt);
+	}
 }// class agenda

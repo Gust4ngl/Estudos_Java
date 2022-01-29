@@ -76,11 +76,19 @@ public class Campo {
 	void minar() {
 		minado = true;
 	}// vai colocar bombas nos campos
+	
+	public boolean isMinado() {
+		return minado;
+	}
 
 	public boolean isMarcado() {
 		return marcado;
 	}// mostra se ta marcado ou não
 
+	void setAberto(boolean aberto) {
+		this.aberto = aberto;
+	}
+	
 	public boolean isAberto() {
 		return aberto;
 	}// isAberto

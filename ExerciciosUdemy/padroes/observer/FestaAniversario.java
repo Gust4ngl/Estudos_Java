@@ -7,7 +7,10 @@ public class FestaAniversario {
 		 Porteiro porteiro = new Porteiro();
 		 
 		 porteiro.registrar(namorada);
+		 
+		 porteiro.registrar(e -> {
+			 System.out.println("Surpresa via lambda!");});
 		 porteiro.monitorar();
-	}
+	}//main
 	
-}
+}//class

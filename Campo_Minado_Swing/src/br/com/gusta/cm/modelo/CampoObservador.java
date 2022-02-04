@@ -3,6 +3,6 @@ package br.com.gusta.cm.modelo;
 @FunctionalInterface
 public interface CampoObservador {
 
-	public void eventoOcorreu(Campo c, CampoEvento evento);
+	public void eventoOcorreu(Campo campo, CampoEvento evento);
 	
 }

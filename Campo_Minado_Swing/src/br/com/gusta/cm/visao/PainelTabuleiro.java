@@ -11,6 +11,7 @@ import br.com.gusta.cm.modelo.Tabuleiro;
 @SuppressWarnings("serial")
 public class PainelTabuleiro extends JPanel {
 
+	@SuppressWarnings("unused")
 	public PainelTabuleiro(Tabuleiro tabuleiro) {
 		
 		setLayout(new GridLayout(

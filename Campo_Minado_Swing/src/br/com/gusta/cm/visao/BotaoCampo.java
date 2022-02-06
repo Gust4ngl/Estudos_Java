@@ -127,7 +127,6 @@ implements CampoObservador, MouseInputListener{
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton() == 1) {
 			campo.abrir();
-			System.out.println("Esquerdo");
 		}else {
 			campo.alternarMarcacao();
 		}

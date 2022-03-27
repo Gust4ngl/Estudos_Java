@@ -42,6 +42,8 @@ public class SkateShop {
 		public void venderSkate() throws SQLException {
 			System.out.println("Digite qual o ID do skate será vendido");
 			int alt = ler.nextInt();
-			cod.excluirDados(alt);
+			System.out.println("Digite quantos skates serão vendidos");
+			int qtde = ler.nextInt();
+			cod.excluirDados(alt, qtde);
 		}
 }

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import com.mysql.cj.protocol.Resultset;
+
 public class ComandosParaBancoDeDados {
 
 	@SuppressWarnings("unused")
@@ -22,7 +24,12 @@ public class ComandosParaBancoDeDados {
 	private String consulta = "SELECT * FROM skates";
 	private String consultarComID = "SELECT * FROM skates WHERE id = ?";
 	private String update = "UPDATE skates SET nome = ?, quantidade = ? WHERE id = ?";
-	private String excluir = "DELETE FROM skates WHERE id = ?";
+	private String vender = "UPDATE skates SET quantidade = ? WHERE id = ?";
+	
+	private String marca;
+	private int id;
+	private int qtde;
+	private int novaQtde;
 	
 	public void inserirDados(String valor, int qtde) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement(add);
@@ -37,9 +44,9 @@ public class ComandosParaBancoDeDados {
 		ResultSet resultado = stmt.executeQuery();
 		
 		while (resultado.next()) {
-			String marca = resultado.getString("nome");
-			int id = resultado.getInt("id");
-			int qtde = resultado.getInt("quantidade");
+			this.marca = resultado.getString("nome");
+			this.id = resultado.getInt("id");
+			this.qtde = resultado.getInt("quantidade");
 			
 			lista.add(new Skate(id, marca, qtde));
 		}
@@ -69,9 +76,26 @@ public class ComandosParaBancoDeDados {
 		
 	}//alterar dados
 	
-	public void excluirDados(int id) throws SQLException {
-		PreparedStatement stmt = conexao.prepareStatement(excluir);
+	public void excluirDados(int id, int qtde) throws SQLException {
+		PreparedStatement stmt = conexao.prepareStatement(consultarComID);
 		stmt.setInt(1, id);
-		stmt.execute();
+		ResultSet resultado = stmt.executeQuery();
+		
+		while (resultado.next()) {
+			novaQtde = resultado.getInt("quantidade");
+		}
+		
+		if (novaQtde > qtde) {
+			novaQtde -= qtde;
+			stmt = conexao.prepareStatement(vender);
+			stmt.setInt(1,novaQtde);
+			stmt.setInt(2, id);
+			stmt.execute();
+		} else {
+			System.out.println("Não é possivel vender mais skates do que possui!\n");
+		}
+		
+		stmt.close();
+		
 	}
 }

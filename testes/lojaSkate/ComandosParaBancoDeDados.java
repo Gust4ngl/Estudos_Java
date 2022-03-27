@@ -12,21 +12,22 @@ public class ComandosParaBancoDeDados {
 
 	@SuppressWarnings("unused")
 	private Skate s;
-	private Consumer<Skate> imprimir = i -> System.out.println(" || ID: " + i.getId() + "  ||  Marca: " + i.getMarca());
+	private Consumer<Skate> imprimir = i -> System.out.println(" || ID: " + i.getId() + "  ||  Marca: " + i.getMarca() + "||  Quantidade: " + i.getQuantidade());
 	private List<Skate> lista = new ArrayList<>();
 	private Connection conexao = ConexaoBD.getConexao();
 	
 	
-	private String add = "INSERT INTO skates (nome)"
-				+ "VALUES (?)";
+	private String add = "INSERT INTO skates (nome, quantidade)"
+				+ "VALUES (?, ?)";
 	private String consulta = "SELECT * FROM skates";
 	private String consultarComID = "SELECT * FROM skates WHERE id = ?";
-	private String update = "UPDATE skates SET nome = ? WHERE id = ?";
+	private String update = "UPDATE skates SET nome = ?, quantidade = ? WHERE id = ?";
 	private String excluir = "DELETE FROM skates WHERE id = ?";
 	
-	public void inserirDados(String valor) throws SQLException{
+	public void inserirDados(String valor, int qtde) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement(add);
 		stmt.setString(1, valor);
+		stmt.setInt(2, qtde);
 		stmt.execute();
 		stmt.close();
 	}//inserir dados
@@ -38,8 +39,9 @@ public class ComandosParaBancoDeDados {
 		while (resultado.next()) {
 			String marca = resultado.getString("nome");
 			int id = resultado.getInt("id");
+			int qtde = resultado.getInt("quantidade");
 			
-			lista.add(new Skate(id, marca));
+			lista.add(new Skate(id, marca, qtde));
 		}
 		
 		System.out.println("\n");
@@ -49,7 +51,7 @@ public class ComandosParaBancoDeDados {
 		stmt.close();
 	}//consultar dados
 	
-	public void alterarDados(int id, String nome) throws SQLException {
+	public void alterarDados(int id, String nome, int quantidade) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement(consultarComID);
 		stmt.setInt(1, id);
 		ResultSet resultado = stmt.executeQuery();
@@ -58,7 +60,8 @@ public class ComandosParaBancoDeDados {
 			stmt.close();
 			stmt = conexao.prepareStatement(update);
 			stmt.setString(1, nome);
-			stmt.setInt(2, id);
+			stmt.setInt(2, quantidade);
+			stmt.setInt(3, id);
 			stmt.execute();
 		}//if
 		

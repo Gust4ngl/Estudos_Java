@@ -3,11 +3,12 @@ package lojaSkate;
 public class Skate {
 
 	private String marca;
-	private int id;
+	private int id, quantidade;
 	
-	public Skate(int id, String nome) {
+	public Skate(int id, String nome, int qtde) {
 		this.id = id;
 		this.marca = nome;	
+		this.quantidade = qtde;
 	}
 
 	public String getMarca() {
@@ -22,4 +23,12 @@ public class Skate {
 		return id;
 	}
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 }

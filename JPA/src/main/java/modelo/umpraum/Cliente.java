@@ -1,5 +1,6 @@
 package modelo.umpraum;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,11 @@ public class Cliente {
 	
 	private String nome;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST})
+	/*
+	 * cascade é usado para quando for inserir mais de um dado no BD
+	 * por exemplo no método incluirtodo linha 47 da Classe infra.DAO
+	 */
 	@JoinColumn(name = "assento_id", unique = true)
 	private Assento assento;
 

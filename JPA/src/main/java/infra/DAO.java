@@ -63,6 +63,9 @@ public class DAO<E> {
 		query.setFirstResult(deslocamento);
 		return query.getResultList();
 	}
+	public E buscarPorID(Object o) {
+		return em.find(classe, o);
+	}
 	
 	public void fechar() {
 		em.close();

@@ -1,8 +1,8 @@
 package teste.muitospramuitos;
 
 import infra.DAO;
-import modelo.muitosPraMuitos.Sobrinho;
-import modelo.muitosPraMuitos.Tio;
+import modelo.muitospramuitos.Sobrinho;
+import modelo.muitospramuitos.Tio;
 
 public class TioSobrinho {
 

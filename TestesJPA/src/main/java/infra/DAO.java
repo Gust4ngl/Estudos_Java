@@ -16,7 +16,6 @@ public class DAO<E> {
 	static {
 		try {
 			emf = Persistence.createEntityManagerFactory("TestesJPA");
-
 		} catch (Exception e) {
 			// logar -> log4j
 		}
@@ -44,35 +43,30 @@ public class DAO<E> {
 		em.persist(entidade);
 		return this;
 	}
-	public DAO<E> incluirTudo(E entidade) {
+	public DAO<E> alterarDados(E entidade) {
+		em.merge(entidade);
+		return this;
+	}
+	public DAO<E> incluirAtomico(E entidade) {
 		return this.abrirTransacao().incluirTransacao(entidade).fecharTransacao();
+	}
+	public DAO<E> alterarAtomico(E entidade) {
+		return this.abrirTransacao().alterarDados(entidade).fecharTransacao();
 	}
 
 	// Métodos de busca
-	public List<E> obterTodos() {
-		return this.obterAlguns(10, 0);
+	
+	public E buscarPorID(Long op) {
+		return em.find(classe, op);
 	}
-	public List<E> obterAlguns(int qtde, int deslocamento) {
+	
+	public List<E> exibirTodosBD() {
 		if (classe == null) {
 			throw new UnsupportedOperationException("Classe nula.");
 		}
-
+		
 		String jpql = "SELECT e FROM " + classe.getName() + " e";
 		TypedQuery<E> query = em.createQuery(jpql, classe);
-		query.setMaxResults(qtde);
-		query.setFirstResult(deslocamento);
-		return query.getResultList();
-	}
-	public E buscarPorID(Object o) {
-		return em.find(classe, o);
-	}
-	
-	public List<E> consultar (String nomeConsulta, Object... params) {
-		TypedQuery<E> query = em.createNamedQuery(nomeConsulta, classe);
-		
-		for (int i = 0; i < params.length; i += 2) {
-			query.setParameter(params[i].toString(), params[i + 1]);
-		}
 		return query.getResultList();
 	}
 	

@@ -35,10 +35,6 @@ public class DAO<E> {
 		em.getTransaction().begin();
 		return this;
 	}
-	public DAO<E> fecharTransacao() {
-		em.getTransaction().commit();
-		return this;
-	}
 	public DAO<E> incluirTransacao(E entidade) {
 		em.persist(entidade);
 		return this;
@@ -47,11 +43,23 @@ public class DAO<E> {
 		em.merge(entidade);
 		return this;
 	}
+	public DAO<E> excluirDados(E entidade) {
+		em.remove(entidade);
+		return this;
+	}
+	public DAO<E> fecharTransacao() {
+		em.getTransaction().commit();
+		return this;
+	}
+	
 	public DAO<E> incluirAtomico(E entidade) {
 		return this.abrirTransacao().incluirTransacao(entidade).fecharTransacao();
 	}
 	public DAO<E> alterarAtomico(E entidade) {
 		return this.abrirTransacao().alterarDados(entidade).fecharTransacao();
+	}
+	public DAO<E> excluirAtomico(E entidade) {
+		return this.abrirTransacao().excluirDados(entidade).fecharTransacao();
 	}
 
 	// Métodos de busca

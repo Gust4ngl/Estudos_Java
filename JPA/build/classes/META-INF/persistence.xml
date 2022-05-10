@@ -19,6 +19,12 @@
 	<class>modelo.muitospramuitos.Tio</class>
 	<class>modelo.muitospramuitos.Ator</class>
 	<class>modelo.muitospramuitos.Filme</class>
+	<class>modelo.composicao.Endereco</class>
+	<class>modelo.composicao.Fornecedor</class>
+	<class>modelo.composicao.Funcionario</class>
+	<class>modelo.heranca.Pessoa</class>
+	<class>modelo.heranca.PessoaJuridica</class>
+	<class>modelo.heranca.PessoaFisica</class>
 	
 	<properties>
 	

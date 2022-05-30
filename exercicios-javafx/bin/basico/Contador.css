@@ -1,0 +1,13 @@
+.conteudo {
+	-fx-background-color: white;
+	-fx-font-family: Bebas;
+}
+
+.titulo{
+	-fx-font-fill: #000000;
+	-fx-font-size: 30px;
+}
+
+.numero{
+	-fx-font-size: 28px;
+}

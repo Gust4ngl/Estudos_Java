@@ -1,13 +1,41 @@
 .conteudo {
-	-fx-background-color: white;
+	-fx-background-color: black;
 	-fx-font-family: Bebas;
 }
 
-.titulo{
-	-fx-font-fill: #000000;
+.titulo {
+	-fx-text-fill: #ffffff;
 	-fx-font-size: 30px;
 }
 
-.numero{
+.numero {
 	-fx-font-size: 28px;
+	-fx-text-fill: white;
+}
+
+.numeroPositivo {
+	-fx-font-size: 28px;
+	-fx-text-fill: green;
+}
+
+.numeroNegativo {
+	-fx-font-size: 28px;
+	-fx-text-fill: red;
+}
+
+.botaoIncremento {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+	-fx-font-size: 28px;
+	-fx-min-width: 80px;
+	-fx-min-height: 80px;
+	-fx-background-radius: 40px;
+}
+.botaoDecremento {
+	-fx-background-color: red;
+	-fx-text-fill: white;
+	-fx-font-size: 40px;
+	-fx-min-width: 80px;
+	-fx-min-height: 80px;
+	-fx-background-radius: 40px;
 }

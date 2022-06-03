@@ -1,7 +1,10 @@
 module exerciciosfx {
+	
 	requires javafx.controls;
-	requires java.desktop;
+	requires javafx.fxml;
 	
 	opens layout;
 	opens basico;
+	opens fxml;
+	
 }

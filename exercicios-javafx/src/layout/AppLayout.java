@@ -13,8 +13,8 @@ public class AppLayout extends Application {
 //		Scene principal = new Scene(new TesteAnchorPane(), 800, 600);
 //		Scene principal = new Scene(new TesteBorderPane(), 800, 600);
 //		Scene principal = new Scene(new TesteFlowPane(), 800, 600);
-//		Scene principal = new Scene(new TesteGridPane(), 800, 600);
-		Scene principal = new Scene(new TesteStackPane(), 800, 600);
+		Scene principal = new Scene(new TesteGridPane(), 800, 600);
+//		Scene principal = new Scene(new TesteStackPane(), 800, 600);
 		
 		primaryStage.setScene(principal);
 		primaryStage.setTitle("Gerenciadores de layout");

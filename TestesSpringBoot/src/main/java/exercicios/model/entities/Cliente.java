@@ -1,4 +1,4 @@
-package exercicios.models;
+package exercicios.model.entities;
 
 public class Cliente {
 

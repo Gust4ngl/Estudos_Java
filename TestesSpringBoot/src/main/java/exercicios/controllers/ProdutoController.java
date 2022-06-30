@@ -5,12 +5,13 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +48,12 @@ public class ProdutoController {
 	public String deletarPorID(@PathVariable int id) {
 		prodRepository.deleteById(id);
 		return "Produto deletado!";
+	}
+	
+	@GetMapping(path = "/pagina/{numeroPagina}")
+	public Page<Produto> buscarProdPagina(@PathVariable int numeroPagina) {
+		Pageable page = PageRequest.of(numeroPagina, 2);
+		return prodRepository.findAll(page);
 	}
 	
 //	@PutMapping

@@ -1,1 +1,0 @@
-Primeiro teste usando JPA, decidi criar algo que possa facilitar o controle de produtos dentro de um estoque de loja

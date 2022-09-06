@@ -1,9 +1,6 @@
 
 ![Logo](https://marcas-logos.net/wp-content/uploads/2020/11/Java-logo.png)
 
-Here has all of my studies and personal projects using Java.
-
-
 ## Resume
 
  - [Aim Trainer](https://github.com/Gust4ngl/Java/tree/master/AimTrainer)
